@@ -4,4 +4,7 @@
     <string name="sign_up">SIGN UP</string>
     <string name="email_or_username">Email or Username</string>
     <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>
