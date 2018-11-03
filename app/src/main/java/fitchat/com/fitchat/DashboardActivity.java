@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,6 +28,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 public class DashboardActivity extends AppCompatActivity
@@ -74,6 +79,19 @@ public class DashboardActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        RecyclerView orderRecyclerView = findViewById(R.id.recyclerview_order_list);
+        orderRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        OrderListAdapter adapter = new OrderListAdapter();
+        SwipeAndDragHelper swipeAndDragHelper = new SwipeAndDragHelper(adapter);
+        ItemTouchHelper touchHelper = new ItemTouchHelper(swipeAndDragHelper);
+        adapter.setTouchHelper(touchHelper);
+        orderRecyclerView.setAdapter(adapter);
+        touchHelper.attachToRecyclerView(orderRecyclerView);
+
+
+        List<String> orderList = new ArrayList<>(Arrays.asList("gender", "age", "weight", "distance"));
+        adapter.setOrderList(orderList);
     }
 
     @Override
@@ -137,4 +155,6 @@ public class DashboardActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
