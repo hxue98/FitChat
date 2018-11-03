@@ -1,5 +1,7 @@
 package fitchat.com.fitchat;
 
+import com.google.firebase.firestore.DocumentReference;
+
 public class User {
     private String username;
     private String email;
@@ -10,10 +12,13 @@ public class User {
     private double weight;
     private double longitude;
     private double latitude;
-    private String favoriteSport;
+    private String favoriteExercise;
+    private boolean isPairing;
+
+    private DocumentReference reference;
 
     public User(String username, String email, String password, String gender, int age,
-                double weight, double longitude, double latitude, String favoriteSport) {
+                double weight, double longitude, double latitude, String favoriteExercise, boolean isPairing) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -22,7 +27,8 @@ public class User {
         this.weight = weight;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.favoriteSport = favoriteSport;
+        this.favoriteExercise = favoriteExercise;
+        this.isPairing = isPairing;
     }
 
     public User() {
@@ -92,11 +98,23 @@ public class User {
         this.latitude = latitude;
     }
 
-    public String getFavoriteSport() {
-        return favoriteSport;
+    public String getFavoriteExercise() {
+        return favoriteExercise;
     }
 
-    public void setFavoriteSport(String favoriteSport) {
-        this.favoriteSport = favoriteSport;
+    public void setFavoriteExercise(String favoriteExercise) {
+        this.favoriteExercise = favoriteExercise;
+    }
+
+    public DocumentReference getReference() {
+        return reference;
+    }
+
+    public void setReference(DocumentReference reference) {
+        this.reference = reference;
+    }
+
+    public String toString() {
+        return reference.getPath();
     }
 }
