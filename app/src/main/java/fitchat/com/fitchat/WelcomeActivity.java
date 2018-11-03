@@ -13,9 +13,17 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        ((Button) findViewById(R.id.welcome_signin)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.welcome_signin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, SigninActivity.class));
+            }
+        });
+
+        findViewById(R.id.welcome_signup).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, SignupActivity.class));
             }
         });
 
