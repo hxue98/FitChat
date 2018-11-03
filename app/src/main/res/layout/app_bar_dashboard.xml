@@ -22,12 +22,12 @@
 
     <include layout="@layout/content_dashboard" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+    <ImageButton
+        android:id="@+id/radar_search"
+        android:layout_width="255dp"
+        android:layout_height="237dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/search"
+        app:srcCompat="@drawable/radar" />
 
 </android.support.design.widget.CoordinatorLayout>

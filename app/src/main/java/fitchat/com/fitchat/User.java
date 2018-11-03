@@ -6,7 +6,8 @@ public class User {
     private String email;
 
     private String gender;
-    private int age;
+    private String name;
+    private long age;
     private double weight;
     private double longitude;
     private double latitude;
@@ -15,9 +16,17 @@ public class User {
 
     private DocumentReference reference;
 
-    public User(String username, String email, String gender, int age,
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public User(String name, String gender, long age,
                 double weight, double longitude, double latitude, String favoriteExercise, boolean isPairing) {
-        this.email = email;
+        this.name = name;
         this.gender = gender;
         this.age = age;
         this.weight = weight;
@@ -46,11 +55,11 @@ public class User {
         this.gender = gender;
     }
 
-    public int getAge() {
+    public long getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(long age) {
         this.age = age;
     }
 

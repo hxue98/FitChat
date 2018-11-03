@@ -20,20 +20,30 @@ public class Model {
     private static  Model instance = new Model();
     public static Model getInstance() { return instance; }
 
+    private boolean editflag;
+
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private List<User> accounts;
-    private FirebaseUser currentUser;
+    private User currentUser;
 
     private Model() {
         accounts = new ArrayList<>();
     }
 
-    public FirebaseUser getCurrentUser() {
+    public boolean isEditflag() {
+        return editflag;
+    }
+
+    public void setEditflag(boolean editflag) {
+        this.editflag = editflag;
+    }
+
+    public User getCurrentUser() {
         return currentUser;
     }
 
-    public void setCurrentUser(FirebaseUser currentUser) {
+    public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
 
