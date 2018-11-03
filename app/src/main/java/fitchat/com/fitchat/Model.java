@@ -21,6 +21,7 @@ public class Model {
     private FirebaseFirestore db;
     private List<User> accounts;
     private User currentUser;
+    private FirebaseAuth mAuth;
 
     private Model() {
         accounts = new ArrayList<>();
