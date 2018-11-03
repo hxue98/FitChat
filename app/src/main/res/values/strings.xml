@@ -2,4 +2,6 @@
     <string name="app_name">FitChat</string>
     <string name="sign_in">SIGN IN</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="email_or_username">Email or Username</string>
+    <string name="password">Password</string>
 </resources>
