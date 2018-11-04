@@ -44,9 +44,10 @@
             android:id="@+id/user_chat_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:text="Send" />
+            android:layout_alignParentBottom="true"
+            android:text="Send"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cast_libraries_material_featurehighlight_text_body_color"
+    android:backgroundTint="@color/common_google_signin_btn_text_dark_default"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".DashboardActivity"
     tools:showIn="@layout/app_bar_dashboard">
