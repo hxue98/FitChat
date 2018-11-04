@@ -22,10 +22,24 @@
 
     <include layout="@layout/content_dashboard" />
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="260dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <include layout="@layout/user_list" />
+
+    </FrameLayout>
+
     <ImageButton
         android:id="@+id/radar_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/wallet_dim_foreground_holo_dark"
+        android:contentDescription="@string/todo"
         app:srcCompat="@drawable/radar" />
 
 </android.support.design.widget.CoordinatorLayout>

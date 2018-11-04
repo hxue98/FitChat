@@ -20,4 +20,6 @@
     <string name="name">name</string>
     <string name="search">search</string>
     <string name="todo">TODO</string>
+    <string name="send">Send</string>
+
 </resources>

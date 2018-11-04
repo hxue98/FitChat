@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Sort {
 
-    public static void sortByPreference(List<User> list, Map<String, Integer> priorityMap) {
+    public static List<User> sortByPreference(List<User> list, Map<String, Integer> priorityMap) {
         final Map<User, Integer> sortPriority = new HashMap<>();
         User currentUser = Model.getInstance().getCurrentUser();
         for (User user : list) {
@@ -33,9 +33,10 @@ public class Sort {
         Collections.sort(list, new Comparator<User>() {
             @Override
             public int compare(User user, User t1) {
-                return sortPriority.get(user) - sortPriority.get(t1);
+                return sortPriority.get(t1) - sortPriority.get(user);
             }
         });
+        return list;
     }
 
     public static double getDistance(double latitude1, double longitude1, double latitude2, double longitude2) {

@@ -26,6 +26,15 @@ public class Model {
     private FirebaseFirestore db;
     private List<User> accounts;
     private User currentUser;
+    private User currentSelectedUser;
+
+    public User getCurrentSelectedUser() {
+        return currentSelectedUser;
+    }
+
+    public void setCurrentSelectedUser(User currentSelectedUser) {
+        this.currentSelectedUser = currentSelectedUser;
+    }
 
     private Model() {
         accounts = new ArrayList<>();

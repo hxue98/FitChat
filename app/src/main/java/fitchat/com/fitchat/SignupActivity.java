@@ -84,8 +84,5 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                     });
 
         }
-
-//        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        Log.d("uidwwwwwwwwwwww", userid);
     }
 }
