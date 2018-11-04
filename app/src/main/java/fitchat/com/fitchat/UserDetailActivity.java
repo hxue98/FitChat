@@ -35,7 +35,7 @@ public class UserDetailActivity extends AppCompatActivity {
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserDetailActivity.this, UserChatActivity.class);
+                Intent intent = new Intent(UserDetailActivity.this, DiscussionActivity.class);
                 startActivity(intent);
                 finish();
             }

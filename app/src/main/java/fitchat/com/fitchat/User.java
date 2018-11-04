@@ -4,7 +4,6 @@ import com.google.firebase.firestore.DocumentReference;
 
 public class User {
     private String email;
-
     private String gender;
     private String name;
     private long age;
@@ -35,9 +34,8 @@ public class User {
         this.favoriteExercise = favoriteExercise;
         this.isPairing = isPairing;
     }
+    public User() {}
 
-    public User() {
-    }
 
     public String getEmail() {
         return email;

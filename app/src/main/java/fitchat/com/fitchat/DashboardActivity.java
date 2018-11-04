@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +29,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,8 +39,6 @@ import java.util.Map;
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    RecyclerView mRecyclerView;
-    RecyclerView.Adapter mAdapter;
     ArrayList<User> pairingUsers = new ArrayList<>();
 
     @Override
@@ -60,11 +60,12 @@ public class DashboardActivity extends AppCompatActivity
                     user.setFavoriteExercise((String) document.get("favoriteExercise"));
                     user.setLatitude(0);
                     user.setLongitude(0);
-
+                    user.setReference(document.getReference());
                 }
             }
         });
         Model.getInstance().setCurrentUser(user);
+
         ImageButton search = findViewById(R.id.radar_search);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -73,10 +74,11 @@ public class DashboardActivity extends AppCompatActivity
         assert recyclerView != null;
         //Step 2.  Hook up the adapter to the view
 
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Searching...", 1000)
+                Snackbar.make(view, "Searching...", 500)
                         .setAction("Action", null).show();
                 pairingUsers.clear();
                 FirebaseFirestore.getInstance().collection("Users").whereEqualTo("isPairing", true).
@@ -93,6 +95,7 @@ public class DashboardActivity extends AppCompatActivity
                                 user.setFavoriteExercise((String) document.get("favoriteExercise"));
                                 user.setLatitude(0);
                                 user.setLongitude(0);
+                                user.setReference(document.getReference());
                                 pairingUsers.add(user);
                             }
                             setupRecyclerView((RecyclerView) recyclerView);
@@ -194,6 +197,7 @@ public class DashboardActivity extends AppCompatActivity
                         user.setFavoriteExercise((String) document.get("favoriteExercise"));
                         user.setLatitude(0);
                         user.setLongitude(0);
+                        user.setReference(document.getReference());
                         pairingUsers.add(user);
                         Log.d("Dash4", String.valueOf(pairingUsers.size()));
                     }
@@ -317,7 +321,6 @@ public class DashboardActivity extends AppCompatActivity
                 mAge = view.findViewById(R.id.user_list_age);
                 mDistance = view.findViewById(R.id.user_list_distance);
             }
-
 
         }
     }

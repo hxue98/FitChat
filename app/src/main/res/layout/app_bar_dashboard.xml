@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:background="@color/wallet_dim_foreground_holo_dark"
+        android:background="@color/cast_libraries_material_featurehighlight_text_body_color"
         android:contentDescription="@string/todo"
         app:srcCompat="@drawable/radar" />
 

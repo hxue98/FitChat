@@ -1,19 +1,30 @@
 package fitchat.com.fitchat;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.ParcelUuid;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
     private String name, favorite, gender;
     private int age;
     private double weight;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +72,6 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         }
-
         mOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,6 +98,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
 
@@ -126,10 +138,9 @@ public class ProfileActivity extends AppCompatActivity {
         userMap.put("longtitude", 0);
         userMap.put("latitude", 0);
         userMap.put("isPairing", false);
+        userMap.put("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
         db.collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .set(userMap, SetOptions.merge());
     }
-
-
 
 }

@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserChatActivity">
+    tools:context=".DiscussionActivity">
 
-    <ListView
-        android:id="@+id/user_chat_listview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/form"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:paddingBottom="10dp"
-        android:text="" />
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <include layout="@layout/history_list" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/form"

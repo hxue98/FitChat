@@ -22,12 +22,12 @@
         <activity android:name=".SigninActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".DiscussionActivity" />
         <activity
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UserDetailActivity" />
-        <activity android:name=".UserChatActivity"></activity>
     </application>
 
 </manifest>
